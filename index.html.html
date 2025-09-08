@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>I'm Sorry ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#e8f6f2;
+      --card:#fdfdfd;
+      --accent:#f7a9c4;
+      --muted:#6b6b6b;
+      --shadow: 0 10px 30px rgba(35,35,35,0.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--bg),#f4f9fb);font-family:Roboto,system-ui,-apple-system,'Segoe UI',sans-serif;color:#222;
+      padding:32px;
+    }
+    .scene{width:100%;max-width:920px;background:var(--card);border-radius:22px;padding:28px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .doodles{position:absolute;left:20px;top:14px;opacity:0.9}
+    svg{display:block}
+    .leftCol{display:flex;gap:20px;align-items:center}
+    .cardFlex{display:flex;gap:28px;align-items:center}
+    .balloon{width:180px;height:220px;background:linear-gradient(180deg,#ffd3e6,#ffb6d0);border-radius:50% 50% 46% 46%/56% 56% 44% 44%;position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 6px 18px rgba(0,0,0,0.08);transform-origin:center}
+    .balloon .word{font-family:Pacifico, cursive;font-size:34px;color:white;letter-spacing:0.6px;text-shadow:0 2px 6px rgba(0,0,0,0.15)}
+    .balloon:after{content:'';position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);width:2px;height:34px;background:linear-gradient(#9f6e7a,#7a3b53);border-radius:4px}
+    .message{padding:6px 8px}
+    h1{font-family:Pacifico, cursive;margin:0;font-size:36px;color:#b03b5b}
+    p.lead{margin-top:10px;margin-bottom:18px;color:var(--muted);font-size:16px}
+    .buttons{display:flex;gap:12px;align-items:center}
+    button, .linkish{background:var(--accent);border:none;padding:10px 16px;border-radius:12px;color:white;font-weight:600;cursor:pointer;box-shadow:0 6px 18px rgba(247,169,196,0.25)}
+    .linkish{background:transparent;color:var(--muted);box-shadow:none;border-radius:8px;padding:8px}
+    .form-box{background:#fff;border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(60,60,60,0.04);max-width:420px}
+    .form-box h2{margin:0 0 12px;color:#a7496a;font-size:20px}
+    .form-box input, .form-box textarea{
+      width:100%;padding:10px;margin-bottom:10px;border-radius:8px;border:1px solid #ddd;font-family:inherit;font-size:14px;
+    }
+    .form-box button{
+      background:var(--accent);color:#fff;border:none;padding:10px 16px;border-radius:12px;cursor:pointer;font-weight:600;
+    }
+    .hearts{position:absolute;right:18px;bottom:6px;pointer-events:none}
+    .heart{position:absolute;width:36px;height:36px;transform-origin:center;opacity:0.95}
+    .heart svg{width:100%;height:100%}
+    @keyframes floatUp{0%{transform:translateY(0) scale(0.95);opacity:0.95}50%{opacity:1}100%{transform:translateY(-220px) scale(1.05);opacity:0}}
+    .heart.h1{right:40px;bottom:10px;animation:floatUp 6s linear infinite;animation-delay:-1s}
+    .heart.h2{right:12px;bottom:40px;width:28px;height:28px;animation:floatUp 7s linear infinite;animation-delay:-2s}
+    .heart.h3{right:80px;bottom:24px;width:48px;height:48px;animation:floatUp 9s linear infinite;animation-delay:-4s}
+    @media (max-width:720px){
+      .cardFlex{flex-direction:column;align-items:center}
+      .balloon{width:140px;height:180px}
+      h1{font-size:30px}
+    }
+
+  /* === Heart fireworks (paste this inside your <style> block) === */
+#fw-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: visible;
+}
+
+.fw-heart {
+  position: absolute;
+  transform: translate(-50%,-50%);
+  will-change: transform, opacity;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  pointer-events: none;
+  user-select: none;
+}
+
+.fw-heart.animate {
+  animation: fw-heart-fly var(--dur, 1.6s) cubic-bezier(.2,.8,.3,1) forwards;
+}
+
+@keyframes fw-heart-fly {
+  0% {
+    transform: translate(-50%,-50%) scale(1);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(var(--tx)), calc(var(--ty))) translate(-50%,-50%) rotate(var(--rot)) scale(0.6);
+    opacity: 0;
+  }
+}
+
+/* tiny spark particles */
+.fw-spark {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%,-50%);
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+@keyframes fw-spark-fly {
+  0% { transform: translate(-50%,-50%) scale(1); opacity: 1; }
+  100% { transform: translate(calc(var(--tx)), calc(var(--ty))) translate(-50%,-50%) scale(0.2); opacity: 0; }
+}
+
+
+  </style>
+</head>
+<body>
+<div class="scene">
+  <div class="doodles">
+    <svg width="140" height="70" viewBox="0 0 140 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="36" cy="34" rx="28" ry="16" fill="#dff6f0" />
+      <ellipse cx="68" cy="26" rx="23" ry="13" fill="#e9fbf9" />
+      <ellipse cx="104" cy="34" rx="22" ry="14" fill="#fef4f6" />
+    </svg>
+  </div>
+
+  <div class="cardFlex">
+    <div class="leftCol">
+      <div class="balloon" id="balloon">
+        <div class="word">SORRY</div>
+      </div>
+      <div class="message">
+        <h1>I'm sorry, love ❤️</h1>
+        <p class="lead">I never meant to hurt you. Please give me a chance to make it right. I promise to learn and do better. i know its just my fault that i didn't do anything please forgive me. from now i'll promise you'll never face a situation like that sorry mithuuu...</p>
+        <div class="buttons">
+          <button id="playTune">▶ Play tune</button>
+          <button id="stopTune" style="display:none;">■ Stop</button>
+        </div>
+      </div>
+    </div>
+
+
+  <!-- floating hearts -->
+  <div class="hearts">
+    <div class="heart h1">
+      <svg viewBox="0 0 32 32"><path d="M23.6 4c-2 0-3.9.9-5.1 2.3C16.3 4.9 14.4 4 12.4 4 8.6 4 6 7 6 10.4c0 6.9 14 13.6 14 13.6s14-6.7 14-13.6C34 7 31.4 4 27.6 4z" fill="#ffb6d0"/></svg>
+    </div>
+    <div class="heart h2">
+      <svg viewBox="0 0 32 32"><path d="M23.6 4c-2 0-3.9.9-5.1 2.3C16.3 4.9 14.4 4 12.4 4 8.6 4 6 7 6 10.4c0 6.9 14 13.6 14 13.6s14-6.7 14-13.6C34 7 31.4 4 27.6 4z" fill="#ffd3e6"/></svg>
+    </div>
+    <div class="heart h3">
+      <svg viewBox="0 0 32 32"><path d="M23.6 4c-2 0-3.9.9-5.1 2.3C16.3 4.9 14.4 4 12.4 4 8.6 4 6 7 6 10.4c0 6.9 14 13.6 14 13.6s14-6.7 14-13.6C34 7 31.4 4 27.6 4z" fill="#ff9fbf"/></svg>
+    </div>
+  </div>
+</div>
+
+<!-- optional: fireworks container (the script will create this automatically if you don't add it) -->
+<div id="fw-container" aria-hidden="true"></div>
+
+
+<!-- 🎵 Your soundtrack -->
+<audio id="sry.mp3.mp3" preload="auto" playsinline>
+  <source src="sry.mp3.mp3" type="audio/mpeg">
+  Your browser does not support audio.
+</audio>
+
+<script>
+  // --- Balloon sway ---
+  const balloon = document.getElementById('balloon');
+  let t=0; function sway(){ t+=0.02; balloon.style.transform = `translateY(${Math.sin(t)*6}px) rotate(${Math.sin(t/1.2)*2}deg)`; requestAnimationFrame(sway);} sway();
+
+  // --- Play/Stop soundtrack ---
+  const song = document.getElementById('sry.mp3.mp3');
+  const playBtn = document.getElementById('playTune');
+  const stopBtn = document.getElementById('stopTune');
+  playBtn.addEventListener('click', async () => {
+    try { await song.play(); } catch(e){ alert('Tap again to start audio'); }
+    playBtn.style.display='none'; stopBtn.style.display='inline-block';
+  });
+  stopBtn.addEventListener('click', ()=> {
+    song.pause(); song.currentTime=0;
+    stopBtn.style.display='none'; playBtn.style.display='inline-block';
+  });
+  song.addEventListener('ended', ()=> {
+    stopBtn.style.display='none'; playBtn.style.display='inline-block';
+  });
+
+  // --- Copy share instruction ---
+  const copyBtn = document.getElementById('copyLink');
+  copyBtn.addEventListener('click', async ()=>{
+    const txt = `Save this page as 'sorry.html' and send the file (with sorry.mp3 in same folder). Or host online.`;
+    try{ await navigator.clipboard.writeText(txt); alert('Copied share instructions to clipboard.'); }
+    catch(e){ prompt('Copy this text:', txt); }
+  });
+</script>
+
+<script>
+(function(){
+  const DELAY_MS = 10000;      // 20 seconds before fireworks start
+  const SHOW_DURATION_MS = 5000; // how long the bursts will run (ms)
+  const BURST_INTERVAL = 200;  // ms between bursts
+
+  function rand(min, max){ return Math.random() * (max - min) + min; }
+
+  function ensureContainer(){
+    let c = document.getElementById('fw-container');
+    if (!c){
+      c = document.createElement('div');
+      c.id = 'fw-container';
+      document.body.appendChild(c);
+    }
+    return c;
+  }
+
+  function createBurst(cx, cy, count = 14, spread = 140){
+    const container = ensureContainer();
+    const colors = ['#ff9fbf','#ffd3e6','#ffb6d0','#ffd6a5','#ffd1f0','#ff9fbf'];
+    const dur = rand(1200, 2000); // ms
+
+    // hearts
+    for (let i = 0; i < count; i++){
+      const heart = document.createElement('div');
+      heart.className = 'fw-heart';
+      heart.textContent = '❤';
+      const size = Math.round(rand(14, 36));
+      heart.style.fontSize = size + 'px';
+      heart.style.color = colors[Math.floor(rand(0, colors.length))];
+
+      // random direction + distance
+      const angle = Math.random() * Math.PI * 2;
+      const distance = rand(spread * 0.3, spread);
+      const tx = Math.round(Math.cos(angle) * distance) + 'px';
+      const ty = Math.round(Math.sin(angle) * distance - Math.abs(distance * 0.45)) + 'px';
+
+      heart.style.left = cx + 'px';
+      heart.style.top  = cy + 'px';
+      heart.style.setProperty('--tx', tx);
+      heart.style.setProperty('--ty', ty);
+      heart.style.setProperty('--rot', Math.round(rand(-720, 720)) + 'deg');
+      heart.style.setProperty('--dur', (dur / 1000) + 's');
+
+      container.appendChild(heart);
+      // trigger CSS animation next frame
+      requestAnimationFrame(() => heart.classList.add('animate'));
+      // clean up
+      setTimeout(() => heart.remove(), dur + 120);
+    }
+
+    // small spark particles
+    for (let s = 0; s < 6; s++){
+      const spark = document.createElement('div');
+      spark.className = 'fw-spark';
+      const size = Math.round(rand(4, 8));
+      spark.style.width = spark.style.height = size + 'px';
+      spark.style.left = cx + 'px';
+      spark.style.top  = cy + 'px';
+      spark.style.background = colors[Math.floor(rand(0, colors.length))];
+
+      const angle = Math.random() * Math.PI * 2;
+      const distance = rand(spread * 0.2, spread * 0.9);
+      const tx = Math.round(Math.cos(angle) * distance) + 'px';
+      const ty = Math.round(Math.sin(angle) * distance - Math.abs(distance * 0.2)) + 'px';
+      const sd = Math.round(rand(900, 1600)); // ms
+      spark.style.setProperty('--tx', tx);
+      spark.style.setProperty('--ty', ty);
+      spark.style.setProperty('--dur', (sd/1000) + 's');
+
+      container.appendChild(spark);
+      // animate spark via inline style (so it uses its own random duration)
+      requestAnimationFrame(() => {
+        spark.style.animation = `fw-spark-fly ${(sd/1000)}s cubic-bezier(.2,.8,.3,1) forwards`;
+      });
+      setTimeout(() => spark.remove(), sd + 120);
+    }
+  }
+
+  function startFireworksAfterDelay(delayMs){
+    setTimeout(() => {
+      const end = Date.now() + SHOW_DURATION_MS;
+      const iv = setInterval(() => {
+        const cx = rand(60, window.innerWidth - 60);
+        const cy = rand(80, Math.max(160, window.innerHeight - 160));
+        createBurst(cx, cy, Math.round(rand(10, 18)), Math.round(rand(100, 200)));
+        if (Date.now() > end) clearInterval(iv);
+      }, BURST_INTERVAL);
+    }, delayMs);
+  }
+
+  // start automatically 20s after load
+  startFireworksAfterDelay(DELAY_MS);
+
+  // optional API: call this from console / other scripts to trigger manually
+  window.triggerHeartFireworksNow = function(cx, cy){
+    cx = cx || window.innerWidth / 2;
+    cy = cy || window.innerHeight / 2;
+    createBurst(cx, cy, 22, 220);
+  };
+})();
+</script>
+
+
+</body>
+</html>
